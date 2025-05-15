@@ -9,7 +9,7 @@ pip install -r requirements.txt
 ```
 ## 3. Train/test
 We use Wandb to monitor our training progress. Details can be seen here: [wandb](https://wandb.ai/site)
-The hyperparameters can be modified in the script of the probabilistic_swin_unet
+The hyperparameters can be modified in the script of the probabilistic_swin_unet. You should also prepare the data properly.
 You can train the model by simply using
 ```
 python train.py
