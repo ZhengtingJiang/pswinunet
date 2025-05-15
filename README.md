@@ -8,3 +8,4 @@ You should prepare an environment with python >= 3.10, and use the command for d
 pip install -r requirements.txt
 ```
 ## 3. Train/test
+We use Wandb to monitor our training progress. Details can be seen here: [wandb](https://wandb.ai/site)
