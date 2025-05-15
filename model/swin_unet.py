@@ -1,5 +1,5 @@
 """
-This code is based on https://github.com/HuCaoFighting/Swin-Unet
+This code is based on https://github.com/1152545264/SwinUnet3D
 from 3D -> 2D
 """
 
