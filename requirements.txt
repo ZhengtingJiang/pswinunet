@@ -10,3 +10,5 @@ h5py
 timm
 einops
 wandb
+pickle
+dicom
