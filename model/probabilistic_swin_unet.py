@@ -1,4 +1,3 @@
-# This code is based on: https://github.com/SimonKohl/probabilistic_unet
 import numpy as np
 from utils import *
 import torch.nn.functional as F
