@@ -219,7 +219,6 @@ class ProbabilisticUnet(nn.Module):
         self.beta = beta
         self.z_prior_sample = 0
 
-        # self.unet = Unet(self.input_channels, self.num_classes, self.num_filters, self.initializers, apply_last_layer=False, padding=True).to(device)
         self.unet = SwinUnet2D(hidden_dim=96, layers=(2, 2, 18, 2), heads=(3, 6, 12, 24), window_size=[6, 6],
                                in_channel=input_channels, num_classes=num_classes,
                                final_test=False, stl_channels=num_filters[0])
@@ -307,20 +306,3 @@ class ProbabilisticUnet(nn.Module):
         print(f"kl = {self.kl.item()}, beta times {self.beta * self.kl}, beta is {self.beta}")
         print(f"dice = {dice_losses.item()}, bce = {bce_loss.item()}")
         return -(self.reconstruction_loss + self.beta * self.kl)
-
-
-if __name__ == "__main__":
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = ProbabilisticUnet().to(device)
-    x = torch.randn(2, 1, 256, 256).to(device)
-    y = torch.randn(2, 1, 256, 256).to(device)
-    binary_y = (torch.sigmoid(y) > 0.5).to(torch.uint8)
-    model(x, binary_y)
-
-    elbo = model.elbo(y)
-    reconstructions = model.reconstruct(use_posterior_mean=True)
-    sample = model.sample(testing=True)
-
-    print(elbo.item())
-    print(reconstructions.shape)
-    print(sample.shape)
