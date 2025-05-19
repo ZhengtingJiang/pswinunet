@@ -1,4 +1,4 @@
-# Probbailistic Swin Unet
+# Probailistic Swin Unet
 ![](media/model_architecture.png)
 This repository provides an implementation of the Probabilistic Swin Unet, a model that integrates probabilistic latent distributions with a Swin Transformer-based encoder-decoder framework.
 ## 1. Data
